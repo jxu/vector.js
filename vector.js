@@ -39,7 +39,3 @@ class Vector extends Array {
         return this.scale(1 / this.norm());
     }
 }
-
-// simple testing code, fix later
-let v = new Vector([1, 2]);
-console.log(v);
