@@ -1,5 +1,12 @@
 // Simple Vector class, extending built-in Arrays
 class Vector extends Array {
+    // unpack if Array is passed in, otherwise just use Array constructor
+    constructor(...args) {
+        (args.length === 1 && Array.isArray(args[0]))
+            ? super(...args[0])
+            : super(...args);
+    }
+
     add(other) {
         return this.map((e, i) => e + other[i]);
     }
@@ -32,3 +39,7 @@ class Vector extends Array {
         return this.scale(1 / this.norm());
     }
 }
+
+// simple testing code, fix later
+let v = new Vector([1, 2]);
+console.log(v);
