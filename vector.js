@@ -1,10 +1,18 @@
 // Simple Vector class, extending built-in Arrays
 class Vector extends Array {
-    // Unpack if Array is passed in, otherwise just use Array constructor
-    constructor(...args) {
-        (args.length === 1 && Array.isArray(args[0]))
-            ? super(...args[0])
-            : super(...args);
+    // Create Vector by unpacking Array passed in
+    // Note: passing in length 1 Array creates length 1 Vector
+    constructor(array) {
+        console.assert(Array.isArray(array),
+            `Vector constructor expected Array, got ${array}`);
+
+        // Handle special case of length 1 array
+        if (array.length === 1) {
+            super();
+            this.push(array[0]);
+        }
+        else
+            super(...array);
     }
 
     // Add another Vector elementwise.
