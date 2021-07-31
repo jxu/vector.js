@@ -19,8 +19,9 @@ class Vector extends Array {
             super();
             this.push(array[0]);
         }
-        else
+        else {
             super(...array);
+        }
     }
 
     /**
